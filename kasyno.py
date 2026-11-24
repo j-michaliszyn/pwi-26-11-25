@@ -158,14 +158,14 @@ def betting(hand, board, total, bets, actor, unit, cap):
 
 def holdem(balance, button):
     print("Grasz przeciw komputerowi z takim samym stosem jak Twój.")
-    print("Ciemne 1/2. Krok licytacji 2 przed i po flopie, potem 4.")
+    print("Blind 1/2. Krok licytacji 2 przed i po flopie, potem 4.")
     print("W rundzie można zwiększyć stawkę dwa razy.")
     cards = deck()
     hands = [[cards.pop(), cards.pop()] for _ in range(2)]
     board = []
     total = [0, 0]
     total[button], total[1 - button] = 1, min(2, balance)
-    print("Mała ciemna:", "Ty" if button == 0 else "komputer")
+    print("Small blind:", "Ty" if button == 0 else "komputer")
     print("Twoje karty:", show(hands[0]))
     for stage, count, unit in [("Preflop", 0, 2), ("Flop", 3, 2),
                                ("Turn", 1, 4), ("River", 1, 4)]:
